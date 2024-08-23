@@ -17,19 +17,60 @@
           href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <style>
+             #game-container {
+            background-color: #abd0ee54;
+            border-radius: 10px;
+            margin-top: 55px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+   h1 {
+            color: #0a0a0a;
+            font-weight: bold;
+            font-size:30px;
+            
+        }
 
-        
+        #scenario-container {
+            margin-bottom: 20px;
+        }
 
-    
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        #score {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        </style>
+  
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+          }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </head>
 <body>
-    
-  <div class="overflow-x-hidden relative w-full">
+ <div class="overflow-x-hidden relative w-full">
        <!--Navbar-->
     <nav class="bg-deepBlue">
       <div class="relative w-[1080px] mx-auto flex items-center justify-between ">
-
           <!-- logo -->
           <a href="/" class="cursor-pointer py-7 pr-7">
               <img
@@ -37,7 +78,6 @@
               width="300px"
               height="100px"/>
           </a>
-
           <ul class="flex space-x-6">
               <li class="text-white font-mullish py-7 hover:text-blue-600 cursor-pointer
                transition-all duration-200 relative group hidden lg:block">
@@ -69,17 +109,15 @@
                transition-all duration-200 relative group hidden lg:block">
               <a href="#">AI ChatBot</a>
 
+
               <div class="absolute bottom-0 w-full h-1 bg-blue-600 hidden group-hover:block
               transition-all duration-200" ></div>
+
+              
               </li>
 
-              
-
-
-              
+              <div id="google_translate_element"></div>       
           </ul>
-
-
 
       </div>
   </nav>
@@ -147,6 +185,19 @@
     </div>
   </section>
 
+  <!-- Game Section -->
+    <div id="game-container">
+      <h1>Water Conservation Adventure</h1>
+      <div id="scenario-container">
+          <p id="scenario-text">Welcome to the Water Conservation Adventure!</p>
+      </div>
+      <div id="choices-container">
+          <!-- Choices will be dynamically added here -->
+      </div>
+      <button id="start-game">Start Game</button>
+      <p id="score">Water Footprint Score: <span id="footprint-score">0</span></p>
+  </div>
+
   <!--feature section - 1-->
   <section class="relative mt-[190px] overflow-hidden">
       <img src="./Images/feature-section1-dottedrows.png" alt="" loading="lazy" 
@@ -176,16 +227,20 @@
                       <span class="text-blue-600">Calculate Your Water Footprint with Ease!</span>
                   </h3>
                   <ul class="space-y-2">
+
+
                     <li class="font-mullish flex items-center space-x-2">
                         
                         <i data-feather="check" class="text-blue-400"></i>
                         <span>Intuitive, Easy-to-Use Interface</span>
                     </li>
                     <li class="font-mullish flex items-center space-x-2">
+
                         
                       <i data-feather="check" class="text-blue-400"></i>
                       <span>Personalized Questions Tailored to Your Lifestyle</span>
                     </li>
+
                     <li class="font-mullish flex items-center space-x-2">
                         
                     <i data-feather="check" class="text-blue-400"></i>
@@ -229,12 +284,95 @@
           </div>
 
           
-  </section>
-
+</section>
+  
   <script>window.danteEmbed = "https://dante-ai.com/embed/?kb_id=37c80616-ea48-4502-8791-58acb16c9d1e&token=d7abf77a-bea7-469e-af7f-693d202430a3&modeltype=gpt-4-omnimodel-mini&mode=false&logo=ZmFsc2U%3D&bubble=true&bubbleopen=false"</script><script src="https://dante-ai.com//bubble-embed.js"></script>
 
 
   <script src="script.js"></script>
+
+  <script> 
+        // Game Data
+    const scenarios = [
+        {
+            text: "You wake up in the morning. How do you start your day?",
+            choices: [
+                { text: "Take a long hot shower", footprint: 20 },
+                { text: "Quick shower", footprint: 10 },
+                { text: "Skip the shower", footprint: 0 },
+            ]
+        },
+        {
+            text: "It's time for breakfast. What do you eat?",
+            choices: [
+                { text: "Bacon and eggs", footprint: 15 },
+                { text: "Cereal with milk", footprint: 8 },
+                { text: "Fruits and nuts", footprint: 4 },
+            ]
+        },
+        {
+            text: "You need to go to work. How do you commute?",
+            choices: [
+                { text: "Drive your car", footprint: 15 },
+                { text: "Carpool", footprint: 8 },
+                { text: "Bike or walk", footprint: 0 },
+            ]
+        }
+    ];
+
+    let currentScenarioIndex = 0;
+    let footprintScore = 0;
+
+      // DOM Elements
+      const scenarioText = document.getElementById('scenario-text');
+      const choicesContainer = document.getElementById('choices-container');
+      const footprintScoreElement = document.getElementById('footprint-score');
+      const startGameButton = document.getElementById('start-game');
+
+      // Start the game
+      startGameButton.addEventListener('click', startGame);
+
+      function startGame() {
+          currentScenarioIndex = 0;
+          footprintScore = 0;
+          footprintScoreElement.textContent = footprintScore;
+          startGameButton.style.display = 'none';
+          showScenario();
+      }
+
+      function showScenario() {
+          if (currentScenarioIndex < scenarios.length) {
+              const currentScenario = scenarios[currentScenarioIndex];
+              scenarioText.textContent = currentScenario.text;
+              choicesContainer.innerHTML = '';
+              currentScenario.choices.forEach(choice => {
+                  const choiceButton = document.createElement('button');
+                  choiceButton.textContent = choice.text;
+                  choiceButton.addEventListener('click', () => makeChoice(choice.footprint));
+                  choicesContainer.appendChild(choiceButton);
+              });
+          } else {
+              endGame();
+          }
+      }
+
+      function makeChoice(footprint) {
+          footprintScore += footprint;
+          footprintScoreElement.textContent = footprintScore;
+          currentScenarioIndex++;
+          showScenario();
+      }
+
+      function endGame() {
+          scenarioText.textContent = `Game Over! Your total water footprint is ${footprintScore}.`;
+          choicesContainer.innerHTML = '';
+          startGameButton.textContent = 'Play Again';
+          startGameButton.style.display = 'block';
+      }
+
+        </script>
+
+        
   
   
 </body>
