@@ -31,4 +31,4 @@ const a=fetch('https://ipapi.co/json/', {
   })
   
   
-      const regionallangs={nationalcapitalterritoryofdelhi:"hi", maharashtra:'mr',karnataka:'kn',andhrapradhesh:'te',telangana:'te'}
+      const regionallangs={nationalcapitalterritoryofdelhi:"hi", maharashtra:'mr',karnataka:'kn',andhrapradhesh:'te',telangana:'te',odisha:'or',westbengal:'bn'}
