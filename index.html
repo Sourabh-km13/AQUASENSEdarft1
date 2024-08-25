@@ -57,16 +57,8 @@
         }
         </style>
   
-        <script type="text/javascript">
-          function googleTranslateElementInit() {
-              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-          }
-      </script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
 </head>
-<body>
+<body class="body">
  <div class="overflow-x-hidden relative w-full">
        <!--Navbar-->
     <nav class="bg-deepBlue">
@@ -116,12 +108,13 @@
               
               </li>
 
-              <div id="google_translate_element"></div>       
+              <li><div id="google_translate_element"></div>  </li>
+                   
           </ul>
 
       </div>
   </nav>
-
+  
   <!--Hero Section-->
   <section
   class="relative bg-blue-500">
@@ -289,7 +282,7 @@
   <script>window.danteEmbed = "https://dante-ai.com/embed/?kb_id=37c80616-ea48-4502-8791-58acb16c9d1e&token=d7abf77a-bea7-469e-af7f-693d202430a3&modeltype=gpt-4-omnimodel-mini&mode=false&logo=ZmFsc2U%3D&bubble=true&bubbleopen=false"</script><script src="https://dante-ai.com//bubble-embed.js"></script>
 
 
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 
   <script> 
         // Game Data
@@ -372,9 +365,19 @@
 
         </script>
 
-        
+    
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', // Original language of the page
+        includedLanguages: 'hi,mr,ml,te,or,kn,en,bn', // List of languages in the dropdown
+        autoDisplay: false // Prevents the translation banner from showing automatically
+      }, 'google_translate_element');
   
-  
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="scripts/language.js"></script>
 </body>
 
 </html>
