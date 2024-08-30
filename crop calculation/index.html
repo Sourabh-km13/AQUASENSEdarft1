@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 id="head">Crop Water Requirement </h1>
+    <img src="https://static.wixstatic.com/media/827d0d_3c792f419a7849a09fa28be1e1ea5841~mv2.jpg/v1/fill/w_1000,h_618,al_c,q_90,usm_0.66_1.00_0.01/827d0d_3c792f419a7849a09fa28be1e1ea5841~mv2.jpg" width="900px" height="500px">
+
     <div class="calculator-container">
         <h1>Crop Water Requirement Calculator</h1>
         <form id="waterCalcForm">
+            <label for="field-area">Field Area (in square meters):</label>
+                <input type="number" id="field-area" name="field-area" required>
+            
             <label for="crop">Select Crop:</label>
             <select id="crop" name="crop">
                 <option value="wheat">Wheat</option>
@@ -39,14 +45,14 @@
 
         <div id="result"></div>
     </div>
-
+ <div id="CropR">
     <h2>Crop Recommendation Based on Water Availability</h2>
+    <img src="https://th.bing.com/th/id/OIP.JPHI96Q-MGzlzGQtBErhdwHaE8?w=282&h=188&c=7&r=0&o=5&pid=1.7" width="800px" height="400px">
     
     <button onclick="getLocation()">Get Crop Recommendations Based on My Location</button>
-
     <h2>Recommendations</h2>
     <div id="result1"></div>
-
+ </div>
 
     <script src="script.js"></script>
     
