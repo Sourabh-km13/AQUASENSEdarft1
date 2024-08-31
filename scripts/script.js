@@ -1,10 +1,21 @@
 function calculateFootprint() {
     const item = document.getElementById('itemInput').value.trim().toLowerCase();
     const waterFootprintData = {
-        apple: 70,
-        banana: 160,
-        beef: 15415,
-        chocolate: 17196,
+        apple: '822 L/kg',
+        banana: '790 L/kg',
+        orange: '560 L/kg',
+        grape: '610 L/kg',
+        mango: '1,600 L/kg',
+        peache: '1,300 L/kg',
+        pineapple: '450 L/kg',
+        avocado: '1,981 L/kg',
+        strawberrie: '276 L/kg',
+        watermelon: '50 L/kg',
+        cherry: '1,990 L/kg',
+        plum: '1,000 L/kg',
+        papaya: '350 L/kg',
+        blueberrie: "800 L/kg",
+        lemon: '1,000 L/kg',
         book:440,
         jeans: 7600,
         tShirt: 2500

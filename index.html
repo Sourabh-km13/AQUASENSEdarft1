@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="csstyle/styles.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <title>AQUA SENSE</title>
 
@@ -169,7 +170,9 @@
               </svg>
               <span class="sr-only">Search</span>
           </button>
+          
       </div>
+      <div class="text-center">example search- apple, banana, lemon</div>
       <div class="flex justify-center items-center mt-4">
         <p id="result"></p>
       </div>
@@ -180,7 +183,7 @@
 
   <!-- crop Recommendation -->
      <div class="space-y-8">
-            <h1 class="font-mullish font-bold text-[30px] leading-[1.2] text-blue-600">Crop Water Requirement Calculator</h1>
+            <h1 class="font-mullish font-bold text-[30px] leading-[1.2] text-blue-600 text-center my-6">Crop Water Requirement Calculator</h1>
             <div class="w-6 h-1 bg-blue-600"></div>
             <p class="font-mullish text-[17px] leading-7 text-deepBlue opacity-90">
                 farmers and gardeners choose the right crops and farming practices, ensuring efficient water use, and maximizing agricultural productivity.</p>
@@ -277,92 +280,22 @@
 
           
 </section>
+
+<!-- quiz -->
+<div class="quiz-container px-10 border-r-2">
+  <h1 class="text-center my-6">Water Conservation Quiz</h1>
+  <div id="quiz"></div>
+  <button id="next" style="display: none;">Next Question</button>
+  <button id="submit" style="display: none;">Submit Quiz</button>
+  <div id="results"></div>
+</div>
   
   <script>window.danteEmbed = "https://dante-ai.com/embed/?kb_id=37c80616-ea48-4502-8791-58acb16c9d1e&token=d7abf77a-bea7-469e-af7f-693d202430a3&modeltype=gpt-4-omnimodel-mini&mode=false&logo=ZmFsc2U%3D&bubble=true&bubbleopen=false"</script><script src="https://dante-ai.com//bubble-embed.js"></script>
 
 
   <script src="scripts/script.js"></script>
 
-  <script> 
-        // Game Data
-    const scenarios = [
-        {
-            text: "You wake up in the morning. How do you start your day?",
-            choices: [
-                { text: "Take a long hot shower", footprint: 20 },
-                { text: "Quick shower", footprint: 10 },
-                { text: "Skip the shower", footprint: 0 },
-            ]
-        },
-        {
-            text: "It's time for breakfast. What do you eat?",
-            choices: [
-                { text: "Bacon and eggs", footprint: 15 },
-                { text: "Cereal with milk", footprint: 8 },
-                { text: "Fruits and nuts", footprint: 4 },
-            ]
-        },
-        {
-            text: "You need to go to work. How do you commute?",
-            choices: [
-                { text: "Drive your car", footprint: 15 },
-                { text: "Carpool", footprint: 8 },
-                { text: "Bike or walk", footprint: 0 },
-            ]
-        }
-    ];
 
-    let currentScenarioIndex = 0;
-    let footprintScore = 0;
-
-      // DOM Elements
-      const scenarioText = document.getElementById('scenario-text');
-      const choicesContainer = document.getElementById('choices-container');
-      const footprintScoreElement = document.getElementById('footprint-score');
-      const startGameButton = document.getElementById('start-game');
-
-      // Start the game
-      startGameButton.addEventListener('click', startGame);
-
-      function startGame() {
-          currentScenarioIndex = 0;
-          footprintScore = 0;
-          footprintScoreElement.textContent = footprintScore;
-          startGameButton.style.display = 'none';
-          showScenario();
-      }
-
-      function showScenario() {
-          if (currentScenarioIndex < scenarios.length) {
-              const currentScenario = scenarios[currentScenarioIndex];
-              scenarioText.textContent = currentScenario.text;
-              choicesContainer.innerHTML = '';
-              currentScenario.choices.forEach(choice => {
-                  const choiceButton = document.createElement('button');
-                  choiceButton.textContent = choice.text;
-                  choiceButton.addEventListener('click', () => makeChoice(choice.footprint));
-                  choicesContainer.appendChild(choiceButton);
-              });
-          } else {
-              endGame();
-          }
-      }
-
-      function makeChoice(footprint) {
-          footprintScore += footprint;
-          footprintScoreElement.textContent = footprintScore;
-          currentScenarioIndex++;
-          showScenario();
-      }
-
-      function endGame() {
-          scenarioText.textContent = `Game Over! Your total water footprint is ${footprintScore}.`;
-          choicesContainer.innerHTML = '';
-          startGameButton.textContent = 'Play Again';
-          startGameButton.style.display = 'block';
-      }
-
-        </script>
 
     
 <script type="text/javascript">
@@ -377,6 +310,7 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="scripts/language.js"></script>
+  <script src="scripts/quiz.js"></script>
 </body>
 
 </html>
