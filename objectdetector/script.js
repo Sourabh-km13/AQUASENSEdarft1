@@ -6,7 +6,7 @@ const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
 const enableWebcamButton = document.getElementById('webcamButton');
 
-const waterFootprint={person:'100L/day', keyboard:'50L',book:'100L',bottle:'30L',cellphone:'200L',toothbrush:'15L',laptop:'300L',remote:'50L',chair:'75L',spoon:'10L',tv:'350L'}
+const waterFootprint={person:'100L/day', keyboard:'500L',book:'depends on pages ask chatbot for more info',bottle:'pet plastic bottle 1L-900L',cellphone:'a modern phone 2000L',toothbrush:'plastic toothbrush 150L',laptop:' modern laptop 3000L',remote:'50L',chair:'',spoon:'plastic spoon 100L',tv:'a modern 4500L'}
 
 
 function getUserMediaSupported() {
